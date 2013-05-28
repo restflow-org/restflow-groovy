@@ -1,0 +1,46 @@
+imports:
+
+- classpath:/common/types.yaml
+
+components:
+
+- id: CreateScratchFileActor
+  type: GroovyActor
+  properties:
+    usesStepDirectory: true
+    step: |
+      String scratchDir = _status.getStepDirectory();
+      File file = new File(scratchDir, "scratch.txt");
+      file.write("This file was created by a Groovy Actor!");
+      output = "This is file " + input;
+    inputs:
+      input:
+    outputs:
+      output:
+      
+- id: AppendStringToFileContents
+  type: GroovyActor
+  properties:
+    step: |
+      concatenatedString = stringOneFile.text + stringTwo;   
+    inputs:
+      stringOneFile:
+      stringTwo:
+    outputs:
+      concatenatedString:
+      
+- id: SlowMultiplier
+  type: GroovyActor
+  properties:
+    step:
+      c = a * b;
+      import java.util.Random;
+      rand = new Random();
+      delay = rand.nextInt(30);
+      System.err.println(delay);
+      System.sleep(delay);
+    inputs:
+      a:
+      b:
+    outputs:
+      c:
