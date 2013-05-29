@@ -13,7 +13,7 @@ public class TestParallelWorkflow_YamlStringDefinitions extends RestFlowTestCase
 			"imports:                                           " + EOL +
 			"                                                   " + EOL +
 			"  - classpath:/org/restflow/groovy/types.yaml		" + EOL +
-			"  - classpath:/common/directors.yaml               " + EOL +
+			"  - classpath:/org/restflow/directors.yaml         " + EOL +
 			"                                                   " + EOL +
 			"components:                                        " + EOL +
 			"                                                   " + EOL +
@@ -189,7 +189,7 @@ public class TestParallelWorkflow_YamlStringDefinitions extends RestFlowTestCase
 			"imports:                                           " + EOL +
 			"                                                   " + EOL +
 			"  - classpath:/org/restflow/groovy/types.yaml		" + EOL +
-			"  - classpath:/common/directors.yaml               " + EOL +
+			"  - classpath:/org/restflow/directors.yaml         " + EOL +
 			"                                                   " + EOL +
 			"components:                                        " + EOL +
 			"                                                   " + EOL +

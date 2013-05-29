@@ -4,8 +4,8 @@ namespace:
 
 imports:
 
-- classpath:/common/directors.yaml
-- classpath:/common/types.yaml 
+- classpath:/org/restflow/directors.yaml
+- classpath:/org/restflow/types.yaml 
 
 components:
 

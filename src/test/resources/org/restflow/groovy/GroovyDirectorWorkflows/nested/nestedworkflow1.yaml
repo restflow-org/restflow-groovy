@@ -1,7 +1,7 @@
 imports:
 
   - classpath:/org/restflow/groovy/actors.yaml
-  - classpath:/common/directors.yaml
+  - classpath:/org/restflow/directors.yaml
   - workspace:/incrementer1.yaml
 
 components:
