@@ -1,0 +1,10 @@
+.svn
+*.class
+*.jar
+*.war
+*.ear
+bin/
+lib/
+target/
+classes/
+.settings/
