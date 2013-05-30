@@ -6,7 +6,7 @@ import org.restflow.test.WorkflowTestCase;
 public class TestWorkflowsGroovy extends WorkflowTestCase {
 
 	public TestWorkflowsGroovy() {
-		super("workflows");
+		super("org/restflow/test/TestWorkflows");
 	}
 
 	public void setUp() throws Exception {
