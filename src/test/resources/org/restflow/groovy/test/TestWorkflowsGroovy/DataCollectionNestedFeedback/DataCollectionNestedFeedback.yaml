@@ -5,7 +5,7 @@ imports:
 
 components:
 
-  - id: SimulateDataCollectionNestedFeedback
+  - id: DataCollectionNestedFeedback
     type: Workflow
     properties:
       director: !ref PublishSubscribeDirector
