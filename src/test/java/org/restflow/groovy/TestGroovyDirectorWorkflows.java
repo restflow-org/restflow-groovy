@@ -7,7 +7,7 @@ import org.restflow.test.WorkflowTestCase;
 public class TestGroovyDirectorWorkflows extends WorkflowTestCase {
 
 	public TestGroovyDirectorWorkflows() {
-		super("org/restflow/groovy/GroovyDirectorWorkflows");
+		super("org/restflow/groovy/test/TestGroovyDirectorWorkflows");
 		_resourceDirectory = "/src/test/resources/";		
 	}
 	

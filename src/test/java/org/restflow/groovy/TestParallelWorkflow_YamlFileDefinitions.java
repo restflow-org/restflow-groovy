@@ -5,7 +5,7 @@ import org.restflow.test.WorkflowTestCase;
 public class TestParallelWorkflow_YamlFileDefinitions extends WorkflowTestCase {
 
 	public TestParallelWorkflow_YamlFileDefinitions() {
-		super("org/restflow/groovy");
+		super("org/restflow/groovy/test/TestWorkflowsGroovy");
 	}
 	
 	public void setUp() throws Exception {
@@ -23,7 +23,6 @@ public class TestParallelWorkflow_YamlFileDefinitions extends WorkflowTestCase {
 		assertFileMatchesTemplate("_metadata/log.txt");
 		assertFileResourcesMatchExactly("_metadata/products.yaml");
 		assertFileResourcesMatchExactly("sample");
-		assertFileResourcesMatchExactly("scratch");
 	}
 	
 	public void test_SimulateDataCollectionNestedParallel_MTDataDrivenDirector() throws Exception {
@@ -34,7 +33,6 @@ public class TestParallelWorkflow_YamlFileDefinitions extends WorkflowTestCase {
 		assertFileMatchesTemplate("_metadata/log.txt");
 		assertFileResourcesMatchExactly("_metadata/products.yaml");
 		assertFileResourcesMatchExactly("sample");
-		assertFileResourcesMatchExactly("scratch");
 	}
 	
 	public void test_SimulateDataCollectionNestedParallel_PublishSubscribeDrivenDirector() throws Exception {
@@ -45,7 +43,6 @@ public class TestParallelWorkflow_YamlFileDefinitions extends WorkflowTestCase {
 		assertFileMatchesTemplate("_metadata/log.txt");
 		assertFileResourcesMatchExactly("_metadata/products.yaml");
 		assertFileResourcesMatchExactly("sample");
-		assertFileResourcesMatchExactly("scratch");
 	}
 	
 	public void test_SimulateDataCollectionParallelAnalysis_MTDataDrivenDirector() throws Exception {

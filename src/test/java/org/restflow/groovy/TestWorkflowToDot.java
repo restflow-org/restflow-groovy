@@ -24,7 +24,7 @@ public class TestWorkflowToDot extends RestFlowTestCase {
 			@Override
 			public void execute() throws Exception {
 				RestFlow.main(new String[]{
-						"-i","restflowFile=classpath:workflows/HammingSequence/HammingSequence.yaml",
+						"-i","restflowFile=classpath:/org/restflow/test/TestWorkflows/HammingSequence/HammingSequence.yaml",
 						"-i","workflowName=HammingSequence",
 						"-f","classpath:org/restflow/groovy/tools/dot.yaml",
 						"-base", "RESTFLOW_TESTRUNS_DIR" } );		
@@ -65,7 +65,7 @@ public class TestWorkflowToDot extends RestFlowTestCase {
 			@Override
 			public void execute() throws Exception {
 				RestFlow.main(new String[]{
-						"-i","restflowFile=classpath:workflows/HammingSequence/HammingSequence.yaml",
+						"-i","restflowFile=classpath:/org/restflow/test/TestWorkflows/HammingSequence/HammingSequence.yaml",
 						"-i","workflowName=HammingSequence",
 						"-f","classpath:org/restflow/groovy/tools/timer.yaml",
 						"-base", "RESTFLOW_TESTRUNS_DIR" } );		
