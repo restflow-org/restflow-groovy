@@ -10,11 +10,10 @@ import org.yaml.snakeyaml.Yaml;
 
 public class TestReports extends WorkflowTestCase {
 
-//	static String RestFlowInvocationCommand = "java -classpath bin:target/restflow-dependencies.jar org.restflow.RestFlow";
 	static String RestFlowInvocationCommand = "java -jar target/RestFlow-0.3.4.jar";
 
 	public TestReports() {
-		super("reports");
+		super("org/restflow/groovy/test/TestReports");
 	}
 	
 	@SuppressWarnings("unchecked")
