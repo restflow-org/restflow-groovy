@@ -1,6 +1,7 @@
 package org.restflow.groovy;
 
 import org.restflow.test.WorkflowTestCase;
+import org.restflow.util.TestUtilities;
 
 public class TestParallelWorkflow_YamlFileDefinitions extends WorkflowTestCase {
 
@@ -18,7 +19,7 @@ public class TestParallelWorkflow_YamlFileDefinitions extends WorkflowTestCase {
 	public void test_SimulateDataCollectionNestedParallel_DataDrivenDirector() throws Exception {
 		_useWorkingDirectory();
 		_loadAndRunWorkflow("SimulateDataCollectionNestedParallel", _dataDrivenDirector());
-		assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
+		TestUtilities.assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
 		assertEquals(_getExpectedTrace(), _runner.getTraceReport());
 		assertFileMatchesTemplate("_metadata/log.txt");
 		assertFileResourcesMatchExactly("_metadata/products.yaml");
@@ -28,7 +29,7 @@ public class TestParallelWorkflow_YamlFileDefinitions extends WorkflowTestCase {
 	public void test_SimulateDataCollectionNestedParallel_MTDataDrivenDirector() throws Exception {
 		_useWorkingDirectory();
 		_loadAndRunWorkflow("SimulateDataCollectionNestedParallel", _MTDataDrivenDirector());
-		assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
+		TestUtilities.assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
 		assertEquals(_getExpectedTrace(), _runner.getTraceReport());
 		assertFileMatchesTemplate("_metadata/log.txt");
 		assertFileResourcesMatchExactly("_metadata/products.yaml");
@@ -38,7 +39,7 @@ public class TestParallelWorkflow_YamlFileDefinitions extends WorkflowTestCase {
 	public void test_SimulateDataCollectionNestedParallel_PublishSubscribeDrivenDirector() throws Exception {
 		_useWorkingDirectory();
 		_loadAndRunWorkflow("SimulateDataCollectionNestedParallel", _publishSubscribeDirector());
-		assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
+		TestUtilities.assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
 		assertEquals(_getExpectedTrace(), _runner.getTraceReport());
 		assertFileMatchesTemplate("_metadata/log.txt");
 		assertFileResourcesMatchExactly("_metadata/products.yaml");

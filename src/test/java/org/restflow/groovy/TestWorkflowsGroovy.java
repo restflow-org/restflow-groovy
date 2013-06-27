@@ -7,6 +7,7 @@ import java.util.Vector;
 import org.restflow.beans.TextScanner;
 import org.restflow.directors.DemandDrivenDirector;
 import org.restflow.test.WorkflowTestCase;
+import org.restflow.util.TestUtilities;
 import org.yaml.snakeyaml.Yaml;
 
 public class TestWorkflowsGroovy extends WorkflowTestCase {
@@ -89,7 +90,7 @@ public class TestWorkflowsGroovy extends WorkflowTestCase {
 		_useWorkingDirectory();
 		_loadAndRunWorkflow("WorkspaceFiles", _publishSubscribeDirector());
 		assertEquals(_getExpectedTrace(), _runner.getTraceReport());
-		assertStringsEqualWhenLineEndingsNormalized(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
+		TestUtilities.assertStringsEqualWhenLineEndingsNormalized(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -124,7 +125,7 @@ public class TestWorkflowsGroovy extends WorkflowTestCase {
 		_teeLogToStandardOutput = true;
 		_loadAndRunWorkflow("SimulateDataCollection", _dataDrivenDirector());
 		assertEquals(_getExpectedTrace(), _runner.getTraceReport());
-		assertStringMatchesTemplate(_getExpectedStdout("stdout_datadriven.txt"), _runner.getStdoutRecording());
+		TestUtilities.assertStringMatchesTemplate(_getExpectedStdout("stdout_datadriven.txt"), _runner.getStdoutRecording());
 		assertFileResourcesMatchExactly("sample");
 		assertFileResourcesMatchExactly("data");
 		assertFileMatchesTemplate("_metadata/log.txt");
@@ -183,7 +184,7 @@ public class TestWorkflowsGroovy extends WorkflowTestCase {
 	public void test_SimulateDataCollectionNested_PublishSubscribeDirector() throws Exception {
 		_useWorkingDirectory();
 		_loadAndRunWorkflow("SimulateDataCollectionNested", _publishSubscribeDirector());
-		assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
+		TestUtilities.assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
 		assertEquals(_getExpectedTrace(), _runner.getTraceReport());
 		assertFileMatchesTemplate("_metadata/log.txt");
 		assertFileResourcesMatchExactly("sample");
@@ -192,7 +193,7 @@ public class TestWorkflowsGroovy extends WorkflowTestCase {
 	public void test_DataCollectionNestedFeedback_PublishSubscribeDirector() throws Exception {
 		_useWorkingDirectory();
 		_loadAndRunWorkflow("DataCollectionNestedFeedback", _publishSubscribeDirector());
-		assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
+		TestUtilities.assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
 		assertEquals(_getExpectedTrace(), _runner.getTraceReport());
 		assertFileMatchesTemplate("_metadata/log.txt");
 		assertFileResourcesMatchExactly("_metadata/products.yaml");
@@ -202,7 +203,7 @@ public class TestWorkflowsGroovy extends WorkflowTestCase {
 	public void test_DataCollectionNestedFeedback_MTDataDrivenDirector() throws Exception {
 		_useWorkingDirectory();
 		_loadAndRunWorkflow("DataCollectionNestedFeedback", _MTDataDrivenDirector());
-		assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
+		TestUtilities.assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
 		assertEquals(_getExpectedTrace(), _runner.getTraceReport());
 		assertFileMatchesTemplate("_metadata/log.txt");
 		assertFileResourcesMatchExactly("sample");
@@ -211,7 +212,7 @@ public class TestWorkflowsGroovy extends WorkflowTestCase {
 	public void test_DataCollectionNestedFeedback_DataDrivenDirector() throws Exception {
 		_useWorkingDirectory();
 		_loadAndRunWorkflow("DataCollectionNestedFeedback", _dataDrivenDirector());
-		assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
+		TestUtilities.assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
 		assertEquals(_getExpectedTrace(), _runner.getTraceReport());
 		assertFileMatchesTemplate("_metadata/log.txt");
 		assertFileResourcesMatchExactly("sample");
@@ -223,7 +224,7 @@ public class TestWorkflowsGroovy extends WorkflowTestCase {
 		//_finalReporter = null;
 		_loadAndRunWorkflow("SampleScreening", _publishSubscribeDirector());
 		//assertEquals(_getExpectedTrace(), _runner.getTraceAsString());
-		assertStringMatchesTemplate(_getExpectedStdout("stdout_datadriven.txt"), _runner.getStdoutRecording());
+		TestUtilities.assertStringMatchesTemplate(_getExpectedStdout("stdout_datadriven.txt"), _runner.getStdoutRecording());
 		//assertFileMatchesTemplate("_metadata/log.txt");
 	}
 	

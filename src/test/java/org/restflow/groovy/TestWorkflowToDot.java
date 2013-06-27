@@ -13,6 +13,7 @@ import org.restflow.beans.TextScanner;
 import org.restflow.test.RestFlowTestCase;
 import org.restflow.util.PortableIO;
 import org.restflow.util.StdoutRecorder;
+import org.restflow.util.TestUtilities;
 
 
 public class TestWorkflowToDot extends RestFlowTestCase {
@@ -34,7 +35,7 @@ public class TestWorkflowToDot extends RestFlowTestCase {
 		String actualOutput = _stdoutRecorder.getStdoutRecording();
 		String expectedOutput = PortableIO.readTextFileOnFilesystem("src/test/resources/org/restflow/groovy/test/TestWorkflowToDot/hammingDot.txt");
 		
-		assertStringsEqualWhenLineEndingsNormalized(expectedOutput , actualOutput);
+		TestUtilities.assertStringsEqualWhenLineEndingsNormalized(expectedOutput , actualOutput);
 	}
 
 	public void testWorkflowToDot_FileProtocol() throws Exception {
@@ -54,7 +55,7 @@ public class TestWorkflowToDot extends RestFlowTestCase {
 		String actualOutput = _stdoutRecorder.getStdoutRecording();
 		String expectedOutput = PortableIO.readTextFileOnFilesystem("src/test/resources/org/restflow/groovy/test/TestWorkflowToDot/helloWorldDot.txt");
 		
-		assertStringsEqualWhenLineEndingsNormalized(expectedOutput , actualOutput);
+		TestUtilities.assertStringsEqualWhenLineEndingsNormalized(expectedOutput , actualOutput);
 		
 	}	
 	
@@ -84,7 +85,7 @@ public class TestWorkflowToDot extends RestFlowTestCase {
 		Map<String,Object> result = s.search( actualOutput );
 		
 		String expectedOutput = PortableIO.readTextFileOnFilesystem("src/test/resources/org/restflow/groovy/test/TestWorkflowToDot/hammingStdout.txt");
-		assertStringsEqualWhenLineEndingsNormalized(expectedOutput , (String)result.get("workflowOutput"));
+		TestUtilities.assertStringsEqualWhenLineEndingsNormalized(expectedOutput , (String)result.get("workflowOutput"));
 
 		Object execTime = result.get("time");
 		assertNotNull("no time found", execTime);
