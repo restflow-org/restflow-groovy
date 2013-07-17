@@ -11,6 +11,9 @@ types:
 - id: GroovyTemplateActor
   className: org.restflow.groovy.GroovyTemplateActor 
 
+- id: GroovyYamlTemplate
+  className: org.restflow.groovy.GroovyYamlTemplate
+
 - id: GroovyActorNode
   type: Node
   properties:
