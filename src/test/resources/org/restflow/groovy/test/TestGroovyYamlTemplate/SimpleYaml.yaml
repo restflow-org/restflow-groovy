@@ -1,0 +1,49 @@
+#! /usr/bin/env restflow
+
+imports:
+
+- classpath:/org/restflow/directors.yaml
+- classpath:/org/restflow/java/actors.yaml
+- classpath:/org/restflow/groovy/types.yaml
+
+components:
+
+- id: SimpleYaml
+  type: Workflow
+  properties:
+    director: !ref JobDependencyDirector
+    nodes: 
+    - !ref CreateData
+    - !ref PrintData
+
+- id: CreateData
+  type: Node
+  properties:
+#    actor: !ref GroovyYamlTemplateActor
+    actor: !inline { className: org.restflow.groovy.GroovyYamlTemplate }
+    constants:
+      _template: |
+        - First item in the list.
+        -
+          Info about first file:
+            filename: /a/path/to/a/file.txt
+            extension: txt
+          name: First file
+        -
+          Info about second file:
+            filename: /path/to/second/file.dat
+            ext: dat
+          color: "255-0-255"
+          name: Tiny 2
+          description: The second file
+          visibility: 1
+          
+    outflows:
+      value: /data
+
+- id: PrintData
+  type: Node
+  properties:
+    actor: !ref PrintStreamWriter
+    inflows:
+      message: /data
