@@ -3,6 +3,7 @@ package org.restflow.groovy;
 import groovy.lang.Writable;
 import groovy.text.SimpleTemplateEngine;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +12,7 @@ import net.jcip.annotations.ThreadSafe;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.codehaus.groovy.control.CompilationFailedException;
 import org.restflow.actors.AbstractActor;
 
 /**
@@ -67,10 +69,7 @@ public class GroovyTemplateActor extends AbstractActor {
 		_state = ActorFSM.INITIALIZED;		
 	}
 	
-	@Override
-	public synchronized void step() throws Exception {
-		super.step();
-
+	protected synchronized String _expandTemplate() throws CompilationFailedException, ClassNotFoundException, IOException {
 		SimpleTemplateEngine engine = new SimpleTemplateEngine();
 
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -84,7 +83,15 @@ public class GroovyTemplateActor extends AbstractActor {
 		String template = (String) model.get(TEMPLATE_INPUTKEY);
 
 		Writable template1 = engine.createTemplate(template).make(model);
-		String view = template1.toString();
+		
+		return template1.toString();
+	}
+	
+	@Override
+	public synchronized void step() throws Exception {
+		super.step();
+
+		String view = _expandTemplate();
 
 		for (String key : _outputSignature.keySet()) {
 			_outputValues.put(key, view);
