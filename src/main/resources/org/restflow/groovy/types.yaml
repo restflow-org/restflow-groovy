@@ -32,5 +32,5 @@ components:
   className: org.restflow.groovy.GroovyTemplateActor 
 
 - id: GroovyYamlTemplateActor
-  className: org.restflow.groovy.GroovyYamlTemplate
+  className: org.restflow.groovy.GroovyYamlTemplateActor
 

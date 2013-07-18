@@ -2,7 +2,7 @@ package org.restflow.groovy;
 
 import org.yaml.snakeyaml.Yaml;
 
-public class GroovyYamlTemplate extends GroovyTemplateActor {
+public class GroovyYamlTemplateActor extends GroovyTemplateActor {
 
 	@Override
 	public synchronized void step() throws Exception {
