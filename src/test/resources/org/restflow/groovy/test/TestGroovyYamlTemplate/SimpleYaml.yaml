@@ -19,8 +19,7 @@ components:
 - id: CreateData
   type: Node
   properties:
-#    actor: !ref GroovyYamlTemplateActor
-    actor: !inline { className: org.restflow.groovy.GroovyYamlTemplate }
+    actor: !ref GroovyYamlTemplateActor
     constants:
       _template: |
         - First item in the list.
