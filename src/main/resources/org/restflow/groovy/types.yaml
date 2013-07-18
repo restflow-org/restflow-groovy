@@ -8,12 +8,6 @@ types:
   className: org.restflow.groovy.GroovyActor
   singleton: false
 
-- id: GroovyTemplateActor
-  className: org.restflow.groovy.GroovyTemplateActor 
-
-- id: GroovyYamlTemplate
-  className: org.restflow.groovy.GroovyYamlTemplate
-
 - id: GroovyActorNode
   type: Node
   properties:
@@ -31,3 +25,12 @@ types:
     tools:
       yaml: !inline
         className: org.yaml.snakeyaml.Yaml
+
+components:
+        
+- id: GroovyTemplateActor
+  className: org.restflow.groovy.GroovyTemplateActor 
+
+- id: GroovyYamlTemplateActor
+  className: org.restflow.groovy.GroovyYamlTemplate
+
