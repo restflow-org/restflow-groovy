@@ -24,3 +24,5 @@ components:
       director: !ref PublishSubscribeDirector
       nodes: 
         - !ref RenderContext
+      inputs:
+        spreadsheetId:
