@@ -76,7 +76,7 @@ components:
     actor.step: |
       actor.configure();
       actor.initialize();
-      actor.loadInputValues(_inputs);
+      actor.loadInputValues(_inputs, true);
       actor.loadStateValues([:]);
       actor.step();
       actor.wrapup();
