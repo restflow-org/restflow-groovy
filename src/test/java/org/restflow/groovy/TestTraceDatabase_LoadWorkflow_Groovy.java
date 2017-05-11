@@ -92,8 +92,8 @@ public class TestTraceDatabase_LoadWorkflow_Groovy extends RestFlowTestCase {
 				"------ ------ -------------- ------------- ----------- --------------- ------------------------------------------------- " 	+ EOL +
 				"1      2      1              o             0           value           /multiplier                                       " 	+ EOL +
 				"2      3      2              o             0           v               /multiplicand                                     " 	+ EOL +
-				"3      4      3              i             0           b               /multiplicand                                     " 	+ EOL +
-				"4      4      4              i             0           a               /multiplier                                       " 	+ EOL +
+				"3      4      3              i             0           a               /multiplier                                       "     + EOL +
+				"4      4      4              i             0           b               /multiplicand                                     " 	+ EOL +
 				"5      4      5              o             0           c               /product                                          " 	+ EOL +
 				"6      5      6              i             0           v               /product                                          " 	+ EOL, 
 			manager.dumpPortTable());
@@ -103,8 +103,8 @@ public class TestTraceDatabase_LoadWorkflow_Groovy extends RestFlowTestCase {
 				"---------- ------- ------------- ---------- ------------ " 	+ EOL +
 				"1          2       o                        value        " 	+ EOL +
 				"2          3       o                        v            " 	+ EOL +
-				"3          4       i                        b            " 	+ EOL +
-				"4          4       i                        a            " 	+ EOL +
+				"3          4       i                        a            " 	+ EOL +
+				"4          4       i                        b            " 	+ EOL +
 				"5          4       o                        c            " 	+ EOL +
 				"6          5       i                        v            " 	+ EOL, 
 			manager.dumpActorVariableTable());
@@ -123,8 +123,8 @@ public class TestTraceDatabase_LoadWorkflow_Groovy extends RestFlowTestCase {
 		assertEquals(
 				"InPortID OutPortID " 	+ EOL +
 				"-------- --------- " 	+ EOL +
-				"3        2         " 	+ EOL +
-				"4        1         " 	+ EOL +
+				"3        1         " 	+ EOL +
+				"4        2         " 	+ EOL +
 				"6        5         " 	+ EOL,
 			manager.dumpChannelTable());
 	}

@@ -21,8 +21,8 @@ public class TestParallelWorkflow_YamlFileDefinitions extends WorkflowTestCase {
 		_loadAndRunWorkflow("SimulateDataCollectionNestedParallel", _dataDrivenDirector());
 		TestUtilities.assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
 		assertEquals(_getExpectedTrace(), _runner.getTraceReport());
-		assertFileMatchesTemplate("_metadata/log.txt");
-		assertFileResourcesMatchExactly("_metadata/products.yaml");
+		assertFileMatchesTemplate(".metadata/log.txt");
+//		assertFileResourcesMatchExactly(".metadata/products.yaml");
 		assertFileResourcesMatchExactly("sample");
 	}
 	
@@ -31,8 +31,8 @@ public class TestParallelWorkflow_YamlFileDefinitions extends WorkflowTestCase {
 		_loadAndRunWorkflow("SimulateDataCollectionNestedParallel", _MTDataDrivenDirector());
 		TestUtilities.assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
 		assertEquals(_getExpectedTrace(), _runner.getTraceReport());
-		assertFileMatchesTemplate("_metadata/log.txt");
-		assertFileResourcesMatchExactly("_metadata/products.yaml");
+		assertFileMatchesTemplate(".metadata/log.txt");
+//		assertFileResourcesMatchExactly(".metadata/products.yaml");
 		assertFileResourcesMatchExactly("sample");
 	}
 	
@@ -41,8 +41,8 @@ public class TestParallelWorkflow_YamlFileDefinitions extends WorkflowTestCase {
 		_loadAndRunWorkflow("SimulateDataCollectionNestedParallel", _publishSubscribeDirector());
 		TestUtilities.assertStringMatchesTemplate(_getExpectedStdout("stdout.txt"), _runner.getStdoutRecording());
 		assertEquals(_getExpectedTrace(), _runner.getTraceReport());
-		assertFileMatchesTemplate("_metadata/log.txt");
-		assertFileResourcesMatchExactly("_metadata/products.yaml");
+		assertFileMatchesTemplate(".metadata/log.txt");
+//		assertFileResourcesMatchExactly(".metadata/products.yaml");
 		assertFileResourcesMatchExactly("sample");
 	}
 	
